@@ -26,4 +26,36 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain('Hello, Task-Manager');
   });
+
+  it('toggleActive should set task status to active if it is currently undefined', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    const task = { status: undefined } as Task;
+    app.toggleActive(task);
+    expect(task.status).toBe('active');
+  });
+
+  it('toggleActive should set task status to undefined if it is currently active', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    const task = { status: 'active' } as Task;
+    app.toggleActive(task);
+    expect(task.status).toBeUndefined();
+  });
+
+  it('toggleCompleted should set task status to completed if it is currently undefined', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    const task = { status: undefined } as Task;
+    app.toggleCompleted(task);
+    expect(task.status).toBe('completed');
+  });
+
+  it('toggleCompleted should set task status to undefined if it is currently completed', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    const task = { status: 'completed' } as Task;
+    app.toggleCompleted(task);
+    expect(task.status).toBeUndefined();
+  });
 });

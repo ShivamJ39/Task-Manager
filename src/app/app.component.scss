@@ -1,0 +1,300 @@
+/* Main background and container */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main {
+  background: #f3f3f3;
+ 
+  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.content {
+  background: #fff;
+  border-radius: 12px;
+
+  margin: 0 auto;
+ 
+flex-direction: column;
+  
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    display:flex;
+}
+
+/* Task input and buttons */
+form input[type="text"] {
+  border: 1px solid #c7c7c7;
+  border-radius: 6px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  background: #f9f9f9;
+  transition: border 0.2s;
+}
+form input[type="text"]:focus {
+  border-color: #0078d4;
+  outline: none;
+}
+form button, .content button {
+  background: #0078d4;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+form button:disabled, .content button:disabled {
+  background: #bdbdbd;
+  cursor: not-allowed;
+}
+form select {
+  border: 1px solid #c7c7c7;
+  border-radius: 6px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  background: #f9f9f9;
+}
+
+/* Filter buttons */
+div[style*="margin-bottom: 1rem;"] button {
+  margin-right: 0.5rem;
+  background: #e1e1e1;
+  color: #222;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+div[style*="margin-bottom: 1rem;"] button[disabled] {
+  background: #0078d4;
+  color: #fff;
+}
+
+/* Task list */
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  background: #f5f8fa;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+ padding:1rem;
+
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+li:hover {
+  background: #e9f1fb;
+}
+li span[style*="font-weight: bold"] {
+  color: #0078d4;
+}
+li input[type="text"] {
+  border: 1px solid #c7c7c7;
+  border-radius: 6px;
+  font-size: 1rem;
+ 
+  background: #fff;
+  margin-left: 0.5rem;
+}
+
+/* Task and subtask input styling */
+input[type="text"], input[placeholder="Add subtask"] {
+  border: 1px solid #c7c7c7;
+  border-radius: 6px;
+  font-size: 1rem;
+  padding: 0.5rem 0.9rem;
+  background: #f9f9f9;
+  transition: border 0.2s, box-shadow 0.2s;
+  outline: none;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"]:focus, input[placeholder="Add subtask"]:focus {
+  border-color: #0078d4;
+  background: #fff;
+  box-shadow: 0 0 0 2px #cce4fa;
+}
+
+/* Misc */
+::-webkit-scrollbar {
+  width: 8px;
+  background: #e1e1e1;
+}
+::-webkit-scrollbar-thumb {
+  background: #c7c7c7;
+  border-radius: 4px;
+}
+
+.task-input {
+  flex: 1;
+  margin-left: 0.5rem;
+}
+
+.search-input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-right: 0;
+  border-right: none;
+}
+
+.add-btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border: 1px solid #c7c7c7;
+  border-left: none;
+  background: #0078d4;
+  color: #fff;
+  padding: 0 1.2rem;
+  font-size: 1.1rem;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 0;
+  height: 100%;
+}
+.add-btn:disabled {
+  background: #bdbdbd;
+  cursor: not-allowed;
+}
+.add-btn i {
+  margin: 0;
+}
+
+.add-btn-inside {
+  background: #0078d4;
+  color: #fff;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.add-btn-inside:disabled {
+  background: #bdbdbd;
+  cursor: not-allowed;
+}
+.add-btn-inside i {
+  margin: 0;
+}
+
+/* Sticky header */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+ /* semi-transparent for blur */
+  backdrop-filter: blur(12px);         /* strong blur */
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+ 
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  align-items: center;
+}
+
+/* Sticky search bar */
+.sticky-searchbar {
+  position: sticky;
+  top: 4.5rem; /* adjust if your header is taller/shorter */
+  z-index: 11;
+ 
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+ 
+  padding-bottom: 0.5rem;
+}
+
+/* Save button */
+.save-btn-fixed {
+  position: fixed;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  z-index: 100;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: none;
+  border-radius: 50%;
+  width: 3.2rem;
+  height: 3.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0078d4;
+  font-size: 1.7rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.save-btn-fixed:hover {
+  background: rgba(0,120,212,0.12);
+}
+.save-btn-fixed i {
+  font-size: 1.7rem;
+}
+
+/* Responsive styles for Task Manager */
+@media (max-width: 768px) {
+  .content {
+    max-width: 100%;
+  
+  }
+  .task-input,
+  .search-input {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+  .add-btn-inside {
+    height: 2rem !important;
+    width: 2rem !important;
+    font-size: 1rem !important;
+    right: 0.25rem !important;
+  }
+  ul {
+    padding: 0;
+  }
+  li {
+  
+    align-items: stretch !important;
+    font-size: 1rem;
+  }
+  button {
+    font-size: 1rem !important;
+    padding: 0.4rem 0.8rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+ 
+  h1 {
+    font-size: 1.3rem;
+  }
+  .task-input,
+  .search-input {
+    font-size: 0.95rem;
+    padding: 0.4rem 0.7rem;
+  }
+  .add-btn-inside {
+    height: 1.7rem !important;
+    width: 1.7rem !important;
+    font-size: 0.95rem !important;
+    right: 0.15rem !important;
+  }
+  button {
+    font-size: 0.95rem !important;
+    padding: 0.3rem 0.6rem !important;
+  }
+}
