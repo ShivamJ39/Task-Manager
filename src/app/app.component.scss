@@ -191,9 +191,9 @@ input[type="text"]:focus, input[placeholder="Add subtask"]:focus {
   position: sticky;
   top: 0;
   z-index: 10;
- /* semi-transparent for blur */
-  backdrop-filter: blur(12px);         /* strong blur */
-  -webkit-backdrop-filter: blur(12px); /* Safari support */
+ 
+  backdrop-filter: blur(12px);        
+  -webkit-backdrop-filter: blur(12px); 
  
   padding-top: 1rem;
   padding-bottom: 0.5rem;
@@ -207,7 +207,7 @@ input[type="text"]:focus, input[placeholder="Add subtask"]:focus {
 /* Sticky search bar */
 .sticky-searchbar {
   position: sticky;
-  top: 4.5rem; /* adjust if your header is taller/shorter */
+  top: 4.5rem; 
   z-index: 11;
  
   backdrop-filter: blur(8px);
