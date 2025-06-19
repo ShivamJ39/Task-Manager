@@ -10,13 +10,13 @@ interface Task {
   subtasks?: Task[];
   newSubtask?: string;
   showSubtaskInput?: boolean;
-  completed?: boolean; // <-- Add this line
+  completed?: boolean; 
 }
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterOutlet], // <-- Add RouterOutlet here
+  imports: [CommonModule, FormsModule, RouterOutlet], 
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
@@ -26,7 +26,7 @@ export class AppComponent {
   tasks: Task[] = [];
 
   constructor() {
-    // Load tasks from localStorage if available
+  
     const saved = localStorage.getItem('tasks');
     if (saved) {
       this.tasks = JSON.parse(saved);
@@ -34,24 +34,24 @@ export class AppComponent {
   }
 
   filter: 'all' | 'active' | 'completed' = 'all';
-  selectedTaskIndex: number | null = null; // <-- Add this line
+  selectedTaskIndex: number | null = null; 
 
   addTask() {
     if (this.newTask && this.newTask.trim()) {
       this.tasks.push({ title: this.newTask.trim(), subtasks: [] });
       this.newTask = '';
-      // REMOVE this.saveTasks();
+   
     }
   }
 
   toggleActive(task: Task) {
     task.status = task.status === 'active' ? undefined : 'active';
-    // Do NOT call this.saveTasks() here
+
   }
 
   toggleCompleted(task: Task) {
     task.status = task.status === 'completed' ? undefined : 'completed';
-    // Do NOT call this.saveTasks() here
+  
   }
 
   removeTask(index: number) {
@@ -67,7 +67,7 @@ export class AppComponent {
     return this.tasks;
   }
 
-  // When you start editing a task, add this property if it doesn't exist:
+ 
   editTask(task: Task) {
     task.editing = true;
     if (task.newSubtask === undefined) task.newSubtask = '';
