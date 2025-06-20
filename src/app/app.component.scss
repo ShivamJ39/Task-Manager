@@ -24,7 +24,18 @@ flex-direction: column;
     align-items: center;
     display:flex;
 }
+.windows-heading {
+  letter-spacing: 2px;
+  font-weight: bold;
+}
 
+.win-tka {
+  color: #0078d4; // Windows blue (for T, K, A, S, E)
+}
+
+.win-as {
+  color: #43a047; // Windows green (for M, N, G, R, A, S)
+}
 /* Task input and buttons */
 form input[type="text"] {
   border: 1px solid #c7c7c7;
